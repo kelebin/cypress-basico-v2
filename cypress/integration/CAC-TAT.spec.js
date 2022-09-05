@@ -75,8 +75,8 @@ describe('Central de atendimento ao Cliente TAT', function() {
     } )
 
 
-    it('preenche os campos obrigatorios com comando customizado', function(){
-        cy.fillMandatoryFieldsAndSubmit()
+    it.only('preenche os campos obrigatorios com comando customizado', () => {
+        cy.fillMandatoryFieldsAndSubmit('Klifford', 'ferreira', 'kevin@email.com', 'teste')
         cy.get('.success').should('be.visible');
     } )
 
@@ -121,7 +121,7 @@ describe('Central de atendimento ao Cliente TAT', function() {
         .should('have.value', 'feedback')
      } )
      
-     it.only('Marca cada campo radio ', function(){
+     it('Marca cada campo radio ', function(){
         cy.get('input[type="radio"]')
         .should('have.length', 3)
         .each(function($radio){
